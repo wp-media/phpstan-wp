@@ -1,0 +1,53 @@
+{
+    "name": "wp-media/phpstan-wp",
+    "description": "WP Media extensions for PHPStan",
+    "license": "GPL-3.0-or-later",
+    "type": "phpstan-extension",
+    "keywords": [
+        "static analysis",
+        "code analysis",
+        "code analyse",
+        "wordpress",
+        "phpstan"
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "phpstan/phpstan": "^2.0"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1",
+        "phpunit/phpunit": "^9.6",
+        "wp-coding-standards/wpcs": "^3.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "WPMedia\\PHPStanWP\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WPMedia\\PHPStanWP\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "extension.neon"
+            ]
+        }
+    },
+    "scripts": {
+        "test-unit": "vendor/bin/phpunit",
+        "phpcs": "vendor/bin/phpcs",
+        "phpcbf": "vendor/bin/phpcbf",
+        "phpstan": "vendor/bin/phpstan analyse"
+    }
+}
