@@ -1,32 +1,32 @@
 name: PHPUnit
 
 on:
-  pull_request:
-  # Allow manually triggering the workflow.
-  workflow_dispatch:
+    pull_request:
+    # Allow manually triggering the workflow.
+    workflow_dispatch:
 
 # Cancel all previous workflow runs for the same branch that have not yet completed.
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
 
 jobs:
-  phpunit:
-    name: PHPUnit tests
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v6
+    phpunit:
+        name: PHPUnit tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v6
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php-versions }}
-        coverage: none  # XDebug can be enabled here 'coverage: xdebug'
-        tools: composer:v2
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-versions }}
+                  coverage: none # XDebug can be enabled here 'coverage: xdebug'
+                  tools: composer:v2
 
-    - name: Install dependencies
-      run: composer install --no-progress --no-suggest
+            - name: Install dependencies
+              run: composer install --no-progress --no-suggest
 
-    - name: Run PHPUnit tests
-      run: composer test-unit
+            - name: Run PHPUnit tests
+              run: composer test-unit
