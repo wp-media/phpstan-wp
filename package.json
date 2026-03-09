@@ -1,0 +1,21 @@
+{
+	"name": "phpstan-wp",
+	"version": "1.0.0",
+	"description": "PHPStan extension for WP Media WordPress projects",
+	"homepage": "https://github.com/wp-media/phpstan-wp#readme",
+	"bugs": {
+		"url": "https://github.com/wp-media/phpstan-wp/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wp-media/phpstan-wp.git"
+	},
+	"license": "GPL-3.0-or-later",
+	"author": "WP Media",
+	"scripts": {
+		"format": "wp-scripts format"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^31.6.0"
+	}
+}
